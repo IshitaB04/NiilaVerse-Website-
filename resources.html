@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Shop - NiilaVerse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 1rem 5%;
+        z-index: 1000;
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+        color: #dc3545;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+        padding: 8rem 5% 5rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+        background: white;
+        padding: 2rem 5% 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .tabs-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #666;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .tab.active {
+        color: #dc3545;
+        border-bottom-color: #dc3545;
+    }
+
+    .tab:hover {
+        color: #dc3545;
+    }
+
+    /* Resources Grid */
+    .resources {
+        padding: 3rem 5%;
+        background: white;
+    }
+
+    .resources-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .resource-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .resource-card:hover {
+        transform: translateY(-5px);
+        border-color: #dc3545;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .resource-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #dc3545, #c82333);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+    }
+
+    .resource-content {
+        padding: 2rem;
+    }
+
+    .resource-badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: #dc3545;
+        color: white;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .resource-badge.free {
+        background: #28a745;
+    }
+
+    .resource-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .resource-desc {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .resource-features {
+        list-style: none;
+        margin-bottom: 2rem;
+    }
+
+    .resource-features li {
+        padding: 0.3rem 0;
+        color: #555;
+        font-size: 0.9rem;
+    }
+
+    .resource-features li::before {
+        content: "✓ ";
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .resource-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+    }
+
+    .resource-price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #dc3545;
+    }
+
+    .resource-button {
+        background: #dc3545;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .resource-button:hover {
+        background: #c82333;
+        transform: translateY(-2px);
+    }
+
+    .resource-button.free {
+        background: #28a745;
+    }
+
+    .resource-button.free:hover {
+        background: #218838;
+    }
+
+    /* Email Signup */
+    .email-signup {
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+        padding: 5rem 5%;
+        text-align: center;
+    }
+
+    .signup-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .signup-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .signup-desc {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+    }
+
+    .signup-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .signup-input {
+        flex: 1;
+        padding: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+        min-width: 250px;
+    }
+
+    .signup-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .signup-input:focus {
+        outline: none;
+        border-color: #dc3545;
+    }
+
+    .signup-button {
+        background: #dc3545;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .signup-button:hover {
+        background: #c82333;
+    }
+
+    .signup-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .benefit-item {
+        text-align: center;
+    }
+
+    .benefit-icon {
+        font-size: 2rem;
+        color: #dc3545;
+        margin-bottom: 1rem;
+    }
+
+    .benefit-title {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .benefit-desc {
+        opacity: 0.8;
+        font-size: 0.9rem;
+    }
+
+    /* Hidden sections for filtering */
+    .resource-section {
+        display: none;
+    }
+
+    .resource-section.active {
+        display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .signup-form {
+            flex-direction: column;
+        }
+
+        .signup-input {
+            min-width: auto;
+        }
+
+        .tabs-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .resources-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">NIILAVERSE</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Resources & Digital Products</h1>
+        <p class="subtitle">From free guides to premium strategies - everything you need to build your empire</p>
+    </div>
+</section>
+
+<!-- Filter Tabs -->
+<section class="filter-tabs">
+    <div class="tabs-container">
+        <button class="tab active" data-filter="all">All Resources</button>
+        <button class="tab" data-filter="free">Free Resources</button>
+        <button class="tab" data-filter="paid">Premium Guides</button>
+        <button class="tab" data-filter="tools">Tools & Templates</button>
+        <button class="tab" data-filter="courses">Courses</button>
+    </div>
+</section>
+
+<!-- Resources Grid -->
+<section class="resources">
+    <div class="resources-content">
+        <div class="resources-grid">
+            <!-- Free Resources -->
+            <div class="resource-card" data-category="free">
+                <div class="resource-image">📋</div>
+                <div class="resource-content">
+                    <span class="resource-badge free">FREE</span>
+                    <h3 class="resource-title">Foreign Founder's LLC Setup Guide</h3>
+                    <p class="resource-desc">Complete step-by-step guide to forming your LLC as a non-US citizen. Includes legal workarounds and compliance tips.</p>
+                    <ul class="resource-features">
+                        <li>20-page detailed guide</li>
+                        <li>Legal structure options</li>
+                        <li>Tax implications breakdown</li>
+                        <li>Recommended service providers</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">FREE</span>
+                        <a href="#" class="resource-button free">Download Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="free">
+                <div class="resource-image">📱</div>
+                <div class="resource-content">
+                    <span class="resource-badge free">FREE</span>
+                    <h3 class="resource-title">TikTok Algorithm Decoded</h3>
+                    <p class="resource-desc">Learn the exact strategies I used to crack TikTok's algorithm and generate consistent sales in Southeast Asia and US markets.</p>
+                    <ul class="resource-features">
+                        <li>15-page strategy guide</li>
+                        <li>Content creation templates</li>
+                        <li>Posting schedule optimization</li>
+                        <li>Engagement tactics that work</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">FREE</span>
+                        <a href="#" class="resource-button free">Get Guide</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Resources -->
+            <div class="resource-card" data-category="paid">
+                <div class="resource-image">🚀</div>
+                <div class="resource-content">
+                    <span class="resource-badge">PREMIUM</span>
+                    <h3 class="resource-title">Complete TikTok Shop Mastery</h3>
+                    <p class="resource-desc">Everything you need to build a profitable TikTok Shop from zero. Includes my personal templates, scripts, and automation tools.</p>
+                    <ul class="resource-features">
+                        <li>50+ page comprehensive guide</li>
+                        <li>Video tutorials & walkthroughs</li>
+                        <li>Content creation templates</li>
+                        <li>Automation setup instructions</li>
+                        <li>30-day email support</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">$97</span>
+                        <a href="#" class="resource-button">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="paid">
+                <div class="resource-image">💰</div>
+                <div class="resource-content">
+                    <span class="resource-badge">PREMIUM</span>
+                    <h3 class="resource-title">Dropshipping Empire Blueprint</h3>
+                    <p class="resource-desc">The exact system I used to build multiple 6-figure dropshipping stores. Includes supplier lists and automation setups.</p>
+                    <ul class="resource-features">
+                        <li>Complete business model breakdown</li>
+                        <li>Vetted supplier database</li>
+                        <li>Shopify setup templates</li>
+                        <li>CJ Dropshipping integration</li>
+                        <li>Scaling strategies & case studies</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">$197</span>
+                        <a href="#" class="resource-button">Purchase</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Templates -->
+            <div class="resource-card" data-category="tools">
+                <div class="resource-image">🛠️</div>
+                <div class="resource-content">
+                    <span class="resource-badge">TOOLS</span>
+                    <h3 class="resource-title">Business Setup Toolkit</h3>
+                    <p class="resource-desc">All the templates, checklists, and tools I use to set up new businesses quickly and efficiently.</p>
+                    <ul class="resource-features">
+                        <li>Legal document templates</li>
+                        <li>Business plan template</li>
+                        <li>Financial tracking sheets</li>
+                        <li>Compliance checklists</li>
+                        <li>Logo & branding templates</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">$47</span>
+                        <a href="#" class="resource-button">Get Tools</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-image">📊</div>
+                <div class="resource-content">
+                    <span class="resource-badge">TOOLS</span>
+                    <h3 class="resource-title">TikTok Analytics Dashboard</h3>
+                    <p class="resource-desc">Custom spreadsheet template to track your TikTok performance, identify winning content, and optimize your strategy.</p>
+                    <ul class="resource-features">
+                        <li>Pre-built tracking formulas</li>
+                        <li>Performance visualization charts</li>
+                        <li>ROI calculation tools</li>
+                        <li>Content performance analysis</li>
+                        <li>Growth tracking metrics</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">$27</span>
+                        <a href="#" class="resource-button">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses -->
+            <div class="resource-card" data-category="courses">
+                <div class="resource-image">🎓</div>
+                <div class="resource-content">
+                    <span class="resource-badge">COURSE</span>
+                    <h3 class="resource-title">Foreign Founder Academy</h3>
+                    <p class="resource-desc">Complete 8-week course covering everything from LLC formation to scaling your first profitable business in the US market.</p>
+                    <ul class="resource-features">
+                        <li>8 modules with video lessons</li>
+                        <li>Live weekly Q&A sessions</li>
+                        <li>Private community access</li>
+                        <li>1-on-1 strategy session</li>
+                        <li>Lifetime updates & support</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <span class="resource-price">$497</span>
+                        <a href="#" class="resource-button">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Email Signup -->
+<section class="email-signup">
+    <div class="signup-content">
+        <h2 class="signup-title">Get Weekly Resources & Updates</h2>
+        <p class="signup-desc">Join 500+ foreign founders getting exclusive strategies, case studies, and resources delivered to their inbox every week.</p>
+        
+        <form class="signup-form" id="emailSignup">
+            <input type="email" class="signup-input" placeholder="Enter your email address" required>
+            <button type="submit" class="signup-button">Get Free Resources</button>
+        </form>
+
+        <div class="signup-benefits">
+            <div class="benefit-item">
+                <div class="benefit-icon">📚</div>
+                <div class="benefit-title">Weekly Guides</div>
+                <div class="benefit-desc">New strategies and insights every Tuesday</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <div class="benefit-title">Case Studies</div>
+                <div class="benefit-desc">Real results from my clients and my own businesses</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-title">Exclusive Content</div>
+                <div class="benefit-desc">Subscribers-only resources and early access</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💬</div>
+                <div class="benefit-title">Direct Access</div>
+                <div class="benefit-desc">Reply to any email and I'll personally respond</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Filter functionality
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const filter = tab.dataset.filter;
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Filter resources
+            document.querySelectorAll('.resource-card').forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Email signup handler
+    document.getElementById('emailSignup').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = this.querySelector('.signup-input').value;
+        const button = this.querySelector('.signup-button');
+        const originalText = button.textContent;
+        
+        button.textContent = 'Subscribing...';
+        button.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            alert('Successfully subscribed! Check your email for the welcome guide.');
+            this.reset();
+            button.textContent = originalText;
+            button.disabled = false;
+        }, 2000);
+    });
+
+    // Resource card interactions
+    document.querySelectorAll('.resource-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+</script>
+```
+
+</body>
+</html>
