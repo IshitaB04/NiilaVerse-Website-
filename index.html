@@ -1,1 +1,520 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiilaVerse - From Struggle to Success</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 5%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #dc3545;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+
+    .hero-text .highlight {
+        color: #dc3545;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-button {
+        background: #dc3545;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        background: #c82333;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #dc3545;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.5rem;
+    }
+
+    /* Journey Section */
+    .journey {
+        background: white;
+        padding: 5rem 5%;
+        position: relative;
+    }
+
+    .journey-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #333;
+    }
+
+    .journey-timeline {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .timeline-item {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 4px solid #dc3545;
+        transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .timeline-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .timeline-desc {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Services Section */
+    .services {
+        background: #000;
+        color: white;
+        padding: 5rem 5%;
+    }
+
+    .services-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .service-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        color: #dc3545;
+        margin-bottom: 1rem;
+    }
+
+    .service-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .service-desc {
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .final-cta {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        padding: 5rem 5%;
+        text-align: center;
+    }
+
+    .final-cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .final-cta h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .final-cta p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-button.white {
+        background: white;
+        color: #dc3545;
+    }
+
+    .cta-button.white:hover {
+        background: #f8f9fa;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-text {
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-stats {
+        animation: fadeInUp 1s ease-out 0.5s both;
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">NIILAVERSE</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#journey">My Journey</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+```
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>From <span class="highlight">Struggle</span> to <span class="highlight">Success</span></h1>
+            <p>Foreign founder in China → US market domination. I cracked TikTok, built an empire, and now I'll show you exactly how to do the same.</p>
+            <a href="#" class="cta-button">Get My FREE Strategy Guide</a>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">$XXXk</span>
+                    <span class="stat-label">Revenue Generated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">XX%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">XXX+</span>
+                    <span class="stat-label">Clients Helped</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">XX</span>
+                    <span class="stat-label">Countries Scaled</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Journey Section -->
+<section class="journey" id="journey">
+    <div class="journey-content">
+        <h2 class="section-title">My Journey: The Real Story</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem;">
+            No overnight success. Just real struggles, smart moves, and relentless execution.
+        </p>
+        
+        <div class="journey-timeline">
+            <div class="timeline-item">
+                <div class="timeline-title">🌏 The Struggle Phase</div>
+                <div class="timeline-desc">Foreign founder in China with minimal resources. No US citizenship, limited capital, but massive determination to crack the American market.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">🎯 TikTok Breakthrough</div>
+                <div class="timeline-desc">Scaled Southeast Asia TikTok operations. Learned the algorithm, consumer psychology, and what actually converts in different markets.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">🚀 US Market Entry</div>
+                <div class="timeline-desc">Formed LLC, launched TikTok Shop + Shopify dropshipping. Started documenting every win and failure for future clients.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">💡 Brand Building</div>
+                <div class="timeline-desc">Realized my journey WAS the product. Started helping other non-US founders navigate the same path with proven systems.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">🤖 AI Integration</div>
+                <div class="timeline-desc">Building specialized AI agent trained on my entire journey. Soon to be offered as a service for scaling operations.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-title">🏢 Full Service Empire</div>
+                <div class="timeline-desc">Consulting, VA services, supplier connections, and complete business setup for founders who want to replicate this success.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="services">
+    <div class="services-content">
+        <h2 class="section-title" style="color: white;">How I Can Help You Win</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <div class="service-title">TikTok Shop Mastery</div>
+                <div class="service-desc">Complete TikTok Shop setup, optimization, and scaling strategies. I'll either teach you or handle it entirely as your VA.</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <div class="service-title">Non-US Founder Consulting</div>
+                <div class="service-desc">LLC formation, market entry strategy, compliance, and scaling - specifically for international founders with limited resources.</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <div class="service-title">Supplier Network Access</div>
+                <div class="service-desc">Tap into my extensive supplier base in China. Perfect for clients ready to launch their own products with proven supply chains.</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <div class="service-title">Dropshipping Systems</div>
+                <div class="service-desc">Complete TikTok + Shopify + CJ dropshipping setup. Proven workflows that generated real profits, not theory.</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <div class="service-title">AI Agent Services</div>
+                <div class="service-desc">Access to my specialized AI trained on this entire journey. Soon available as a standalone service for business automation.</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <div class="service-title">Weekly Resources</div>
+                <div class="service-desc">Fresh PDFs, case studies, and insights every week. Free resources for email subscribers, premium guides for serious players.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="final-cta-content">
+        <h2>Ready to Build Your Empire?</h2>
+        <p>Stop watching from the sidelines. Join the founders who took action and are now seeing real results.</p>
+        <a href="#" class="cta-button white">Start Your Journey Today</a>
+    </div>
+</section>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+        }
+    });
+
+    // Add some interactive hover effects
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+</script>
+```
+
+</body>
+</html>
