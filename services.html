@@ -1,1 +1,610 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - NiilaVerse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 1rem 5%;
+        z-index: 1000;
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+        color: #dc3545;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+        padding: 8rem 5% 5rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+    }
+
+    /* Services Grid */
+    .services {
+        padding: 5rem 5%;
+        background: white;
+    }
+
+    .services-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 4rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .service-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #dc3545, #c82333);
+        transition: left 0.3s ease;
+    }
+
+    .service-card:hover::before {
+        left: 0;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: #dc3545;
+    }
+
+    .service-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        color: #dc3545;
+    }
+
+    .service-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .service-desc {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .service-features {
+        list-style: none;
+        margin: 2rem 0;
+        text-align: left;
+    }
+
+    .service-features li {
+        padding: 0.5rem 0;
+        color: #555;
+    }
+
+    .service-features li::before {
+        content: "✓ ";
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .service-price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #dc3545;
+        margin: 1rem 0;
+    }
+
+    .service-button {
+        background: #dc3545;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .service-button:hover {
+        background: #c82333;
+        transform: translateY(-2px);
+    }
+
+    /* Featured Service */
+    .featured {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+        color: white;
+        transform: scale(1.05);
+        border: none;
+    }
+
+    .featured .service-title,
+    .featured .service-desc,
+    .featured .service-features {
+        color: white;
+    }
+
+    .featured .service-features li {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .featured .service-price {
+        color: white;
+    }
+
+    .featured .service-button {
+        background: white;
+        color: #dc3545;
+    }
+
+    .featured .service-button:hover {
+        background: #f8f9fa;
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        background: white;
+        color: #dc3545;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    /* Process Section */
+    .process {
+        background: #000;
+        color: white;
+        padding: 5rem 5%;
+    }
+
+    .process-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .process-step {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        line-height: 50px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .step-desc {
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        padding: 5rem 5%;
+        text-align: center;
+    }
+
+    .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        background: white;
+        color: #dc3545;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .cta-button.secondary:hover {
+        background: white;
+        color: #dc3545;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .featured {
+            transform: none;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">NIILAVERSE</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Services That Actually Work</h1>
+        <p class="subtitle">Proven strategies, real systems, guaranteed results for foreign founders</p>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services">
+    <div class="services-content">
+        <h2 class="section-title">Choose Your Path to Success</h2>
+        <p class="section-subtitle">Whether you want to learn, delegate, or scale - there's a solution for you</p>
+        
+        <div class="services-grid">
+            <!-- TikTok Shop Mastery -->
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <div class="service-title">TikTok Shop Complete Setup</div>
+                <div class="service-desc">From zero to profitable TikTok Shop. I'll either teach you step-by-step or handle everything as your dedicated VA.</div>
+                <ul class="service-features">
+                    <li>Complete TikTok Shop setup & optimization</li>
+                    <li>Product research & listing creation</li>
+                    <li>Content creation strategies</li>
+                    <li>Ad campaign management</li>
+                    <li>Performance tracking & scaling</li>
+                </ul>
+                <div class="service-price">From $497</div>
+                <a href="contact.html" class="service-button">Get Started</a>
+            </div>
+
+            <!-- Consulting - Featured -->
+            <div class="service-card featured">
+                <div class="featured-badge">MOST POPULAR</div>
+                <div class="service-icon">💼</div>
+                <div class="service-title">Foreign Founder Consulting</div>
+                <div class="service-desc">1-on-1 strategy sessions for non-US founders. Complete business setup, market entry, and scaling roadmap.</div>
+                <ul class="service-features">
+                    <li>LLC formation & compliance guidance</li>
+                    <li>Market entry strategy development</li>
+                    <li>TikTok + Shopify integration</li>
+                    <li>Supplier connection facilitation</li>
+                    <li>Monthly progress reviews</li>
+                    <li>Direct access via WhatsApp/Telegram</li>
+                </ul>
+                <div class="service-price">$997/month</div>
+                <a href="contact.html" class="service-button">Book Consultation</a>
+            </div>
+
+            <!-- Dropshipping Systems -->
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <div class="service-title">Dropshipping Systems</div>
+                <div class="service-desc">Complete TikTok + Shopify + CJ dropshipping setup. Proven workflows that generated real profits.</div>
+                <ul class="service-features">
+                    <li>TikTok Shop + Shopify integration</li>
+                    <li>CJ Dropshipping setup & optimization</li>
+                    <li>Automated order fulfillment</li>
+                    <li>Profit tracking systems</li>
+                    <li>Scaling strategies</li>
+                </ul>
+                <div class="service-price">$797</div>
+                <a href="contact.html" class="service-button">Learn More</a>
+            </div>
+
+            <!-- Supplier Network -->
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <div class="service-title">Supplier Network Access</div>
+                <div class="service-desc">Tap into my extensive supplier base in China. Perfect for clients ready to launch their own products.</div>
+                <ul class="service-features">
+                    <li>Vetted supplier introductions</li>
+                    <li>Price negotiation assistance</li>
+                    <li>Quality control guidance</li>
+                    <li>Logistics coordination</li>
+                    <li>Private label opportunities</li>
+                </ul>
+                <div class="service-price">$397</div>
+                <a href="contact.html" class="service-button">Get Access</a>
+            </div>
+
+            <!-- Done-For-You VA -->
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <div class="service-title">Done-For-You VA Services</div>
+                <div class="service-desc">Let me handle your TikTok Shop operations while you focus on strategy and growth.</div>
+                <ul class="service-features">
+                    <li>Daily TikTok Shop management</li>
+                    <li>Content creation & posting</li>
+                    <li>Customer service handling</li>
+                    <li>Order processing & fulfillment</li>
+                    <li>Performance reporting</li>
+                </ul>
+                <div class="service-price">$1,497/month</div>
+                <a href="contact.html" class="service-button">Delegate Now</a>
+            </div>
+
+            <!-- AI Agent (Coming Soon) -->
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <div class="service-title">AI Agent Services</div>
+                <div class="service-desc">Access to my specialized AI trained on this entire journey. Soon available for business automation.</div>
+                <ul class="service-features">
+                    <li>24/7 business guidance</li>
+                    <li>Strategy recommendations</li>
+                    <li>Market analysis & insights</li>
+                    <li>Automated decision support</li>
+                    <li>Continuous learning from results</li>
+                </ul>
+                <div class="service-price">Coming Soon</div>
+                <a href="contact.html" class="service-button">Join Waitlist</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process">
+    <div class="process-content">
+        <h2 class="section-title" style="color: white;">How We Work Together</h2>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">Strategy Call</div>
+                <div class="step-desc">30-minute discovery call to understand your situation, goals, and challenges. No sales pitch - just honest assessment.</div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Custom Plan</div>
+                <div class="step-desc">Based on your needs, I create a detailed roadmap with specific actions, timelines, and expected outcomes.</div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Implementation</div>
+                <div class="step-desc">We execute the plan together. Whether teaching, consulting, or doing it for you - results start immediately.</div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">Scale & Optimize</div>
+                <div class="step-desc">Once systems are working, we focus on scaling, optimizing, and building long-term sustainable growth.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Stop struggling alone. Let's build your empire together with proven systems and strategies.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="cta-button">Book Free Strategy Call</a>
+            <a href="resources.html" class="cta-button secondary">Download Free Resources</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add interactive hover effects for service cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    });
+</script>
+```
+
+</body>
+</html>
