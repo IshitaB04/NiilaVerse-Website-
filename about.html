@@ -1,1 +1,552 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NiilaVerse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 1rem 5%;
+        z-index: 1000;
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+        color: #dc3545;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+        padding: 8rem 5% 5rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: #dc3545;
+        margin: 2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+    }
+
+    /* Story Section */
+    .story {
+        padding: 5rem 5%;
+        background: white;
+    }
+
+    .story-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #333;
+    }
+
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        margin-bottom: 4rem;
+    }
+
+    .story-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    .story-text h3 {
+        color: #333;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .story-text .highlight {
+        background: #dc3545;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+
+    .stats-box {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 5px solid #dc3545;
+    }
+
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .stat-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .stat-value {
+        color: #dc3545;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    /* Timeline Section */
+    .timeline {
+        background: #000;
+        color: white;
+        padding: 5rem 5%;
+    }
+
+    .timeline-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .timeline-items {
+        position: relative;
+    }
+
+    .timeline-items::before {
+        content: '';
+        position: absolute;
+        left: 2rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #dc3545;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding: 2rem 0 2rem 5rem;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 1.2rem;
+        top: 2rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: #dc3545;
+        border-radius: 50%;
+        border: 4px solid #000;
+    }
+
+    .timeline-year {
+        color: #dc3545;
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-desc {
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    /* Values Section */
+    .values {
+        background: white;
+        padding: 5rem 5%;
+    }
+
+    .values-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .value-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .value-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .value-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .value-desc {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        padding: 4rem 5%;
+        text-align: center;
+    }
+
+    .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-button {
+        background: white;
+        color: #dc3545;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .story-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .timeline-items::before {
+            left: 1rem;
+        }
+
+        .timeline-item {
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            left: 0.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">NIILAVERSE</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-image">🌍</div>
+        <h1>The Real Story Behind NiilaVerse</h1>
+        <p class="subtitle">From foreign founder with minimal resources to helping others build empires</p>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section class="story">
+    <div class="story-content">
+        <h2 class="section-title">My Journey: No Sugar-Coating</h2>
+        
+        <div class="story-grid">
+            <div class="story-text">
+                <p>I'm not your typical success story. I didn't have venture capital, Silicon Valley connections, or even US citizenship when I started.</p>
+
+                <h3>The Reality</h3>
+                <p>Based in China, minimal resources, trying to crack the US market as a complete outsider. Every "simple" step everyone talks about? <span class="highlight">Not simple when you're foreign.</span></p>
+
+                <p>LLC formation, tax compliance, understanding US consumer behavior, navigating TikTok's algorithm - I had to figure it all out the hard way.</p>
+
+                <h3>The Breakthrough</h3>
+                <p>But here's what I discovered: <span class="highlight">Being an outsider was actually my advantage.</span> I had to be more creative, more resourceful, more data-driven than everyone else.</p>
+
+                <p>I couldn't rely on assumptions or "common knowledge" - I had to test everything. That obsession with testing and optimization is what eventually led to breakthrough results in Southeast Asia, and now the US market.</p>
+            </div>
+
+            <div class="stats-box">
+                <div class="stat-item">
+                    <span class="stat-label">Years Building</span>
+                    <span class="stat-value">X+ Years</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Markets Conquered</span>
+                    <span class="stat-value">Southeast Asia → US</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Revenue Generated</span>
+                    <span class="stat-value">$XXX,XXX+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Clients Helped</span>
+                    <span class="stat-value">XXX+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Success Rate</span>
+                    <span class="stat-value">XX%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-text">
+            <h3>Why I Started Teaching</h3>
+            <p>After scaling my own operations, I realized something: <span class="highlight">There are thousands of foreign founders facing the exact same struggles I faced.</span></p>
+
+            <p>The information exists, but it's scattered, often assumes you're American, and rarely addresses the unique challenges we face. I started documenting my journey not just for accountability, but because I wished someone had done this for me when I started.</p>
+
+            <p>Now, I help other non-US founders navigate this path with proven systems, real data, and strategies that actually work when you don't have traditional advantages.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline">
+    <div class="timeline-content">
+        <h2 class="section-title" style="color: white;">The Complete Journey</h2>
+        
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-title">The Struggle Begins</div>
+                <div class="timeline-desc">Foreign founder in China with big dreams and minimal resources. Started researching US market entry while working full-time. Every "simple" guide assumed US citizenship and local bank accounts.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-title">First TikTok Success</div>
+                <div class="timeline-desc">Cracked the Southeast Asia TikTok algorithm. Learned consumer psychology, content creation, and what actually drives purchases. Generated first significant revenue through social commerce.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-title">US Market Entry</div>
+                <div class="timeline-desc">Finally formed LLC through legal workarounds. Launched first US TikTok Shop experiments. Failed multiple times before finding product-market fit. Started documenting everything.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-title">Scaling Success</div>
+                <div class="timeline-desc">Achieved consistent profitability. Built systems for TikTok + Shopify + CJ dropshipping. Started helping first clients with similar backgrounds. Realized my journey was the real product.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-title">NiilaVerse Launch</div>
+                <div class="timeline-desc">Officially launched consulting practice. Building AI agent trained on entire journey. Expanding services to include VA support, supplier connections, and complete business setup for foreign founders.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values">
+    <div class="values-content">
+        <h2 class="section-title">What Drives Me</h2>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">💯</div>
+                <div class="value-title">Radical Transparency</div>
+                <div class="value-desc">No fake guru nonsense. I share real numbers, actual failures, and exact strategies. You'll know exactly what worked and what didn't.</div>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <div class="value-title">Data-Driven Results</div>
+                <div class="value-desc">Every strategy is backed by real testing and results. No theory or "best practices" - only what's been proven to work in the real world.</div>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <div class="value-title">Foreign Founder Focus</div>
+                <div class="value-desc">I specialize in the unique challenges we face. Legal hurdles, cultural barriers, resource limitations - I've been there and solved them.</div>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🚀</div>
+                <div class="value-title">Scalable Systems</div>
+                <div class="value-desc">Everything I teach is designed to scale. From your first $100 to your first $100k - the systems grow with you.</div>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <div class="value-title">Long-term Partnership</div>
+                <div class="value-desc">This isn't a quick course and goodbye. I'm building a community of foreign founders who support each other's growth.</div>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <div class="value-title">Speed of Execution</div>
+                <div class="value-desc">No endless planning phases. I teach you to move fast, test quickly, and iterate based on real market feedback.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>If my story resonates with you, let's talk about your path to success.</p>
+        <a href="contact.html" class="cta-button">Get In Touch</a>
+    </div>
+</section>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+```
+
+</body>
+</html>
